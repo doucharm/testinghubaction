@@ -29,7 +29,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
+          images: ${{ secrets.DOCKER_USERNAME }}/testinghubaction
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -37,5 +37,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
-            ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/testinghubaction:latest
+            ${{ secrets.DOCKER_USERNAME }}/testinghubaction:${{ github.sha }}
